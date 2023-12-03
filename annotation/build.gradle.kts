@@ -15,10 +15,8 @@ java {
 
 publishing {
     publications {
-        create<MavenPublication>("release") {
-            groupId = "xyz.mufanc.autox"
-            artifactId = "annotation"
-            version = libraryVersion
+        create<MavenPublication>("annotation") {
+            from(components["java"])
         }
     }
 }

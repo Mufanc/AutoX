@@ -15,10 +15,8 @@ java {
 
 publishing {
     publications {
-        create<MavenPublication>("release") {
-            groupId = "xyz.mufanc.autox"
-            artifactId = "ksp"
-            version = libraryVersion
+        create<MavenPublication>("ksp") {
+            from(components["java"])
         }
     }
 }
