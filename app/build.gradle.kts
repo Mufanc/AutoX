@@ -42,7 +42,4 @@ android {
 dependencies {
     ksp(project(":ksp"))
     implementation(project(":annotation"))
-
-    compileOnly(libs.libxposed.api)
-    implementation(libs.libxposed.service)
 }
