@@ -13,10 +13,13 @@ java {
     targetCompatibility = androidTargetCompatibility
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("ksp") {
-            from(components["java"])
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("ksp") {
+                from(components["java"])
+                artifact("build/libs/ksp-${version}.jar") { classifier = "jar" }
+            }
         }
     }
 }

@@ -20,4 +20,3 @@ val androidCompileSdkVersion by extra(34)
 val androidSourceCompatibility by extra(JavaVersion.VERSION_17)
 val androidTargetCompatibility by extra(JavaVersion.VERSION_17)
 val androidKotlinJvmTarget by extra("17")
-

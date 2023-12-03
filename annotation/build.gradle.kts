@@ -13,10 +13,13 @@ java {
     targetCompatibility = androidTargetCompatibility
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("annotation") {
-            from(components["java"])
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("annotation") {
+                from(components["java"])
+                artifact("build/libs/annotation-${version}.jar") { classifier = "jar" }
+            }
         }
     }
 }
