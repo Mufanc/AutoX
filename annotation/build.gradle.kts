@@ -10,8 +10,3 @@ java {
     sourceCompatibility = androidSourceCompatibility
     targetCompatibility = androidTargetCompatibility
 }
-
-dependencies {
-    implementation(libs.ksp)
-    implementation(project(":annotation"))
-}

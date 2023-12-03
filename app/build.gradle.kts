@@ -1,18 +1,25 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
 }
+
+val androidMinSdkVersion: Int by rootProject.extra
+val androidTargetSdkVersion: Int by rootProject.extra
+val androidCompileSdkVersion: Int by rootProject.extra
+
+val androidSourceCompatibility: JavaVersion by rootProject.extra
+val androidTargetCompatibility: JavaVersion by rootProject.extra
+val androidKotlinJvmTarget: String by rootProject.extra
 
 android {
     namespace = "xyz.mufanc.autox"
-    compileSdk = 34
+    compileSdk = androidCompileSdkVersion
 
     defaultConfig {
         applicationId = "xyz.mufanc.autox"
-        minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = androidMinSdkVersion
+        targetSdk = androidTargetSdkVersion
     }
 
     buildTypes {
@@ -23,17 +30,19 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = androidSourceCompatibility
+        targetCompatibility = androidTargetCompatibility
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = androidKotlinJvmTarget
     }
 }
 
 dependencies {
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
+    ksp(project(":ksp"))
+    implementation(project(":annotation"))
+
+    compileOnly(libs.libxposed.api)
+    implementation(libs.libxposed.service)
 }
