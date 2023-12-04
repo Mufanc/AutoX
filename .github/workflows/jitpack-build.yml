@@ -1,0 +1,15 @@
+name: jitpack-build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  jitpack:
+    runs-on: macos-latest
+    steps:
+      - name: Request SNAPSHOT build on JitPack
+        shell: zsh {0}
+        run: |
+          # Timeout in 30 seconds to avoid waiting for build
+          curl -s -m 30 https://jitpack.io/xyz/mufanc/autox/${$(echo ${{ github.ref }})##*/}-SNAPSHOT/ || true
