@@ -17,6 +17,10 @@ dependencyResolutionManagement {
 * in app **build.gradle.kts**
 
 ```kotlin
+plugins {
+    id("com.google.devtools.ksp") version "<version>"
+}
+
 dependencies {
     ksp("xyz.mufanc.autox:ksp:1.0.0")
     implementation("xyz.mufanc.autox:annotation:1.0.0")
