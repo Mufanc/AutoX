@@ -22,8 +22,10 @@ plugins {
 }
 
 dependencies {
-    ksp("xyz.mufanc.autox:ksp:1.0.0")
-    implementation("xyz.mufanc.autox:annotation:1.0.0")
+//    ksp("xyz.mufanc.autox:ksp:master-SNAPSHOT")
+//    implementation("xyz.mufanc.autox:annotation:master-SNAPSHOT")
+    ksp("xyz.mufanc.autox:ksp:1.0.1")
+    implementation("xyz.mufanc.autox:annotation:1.0.1")
 }
 ```
 
