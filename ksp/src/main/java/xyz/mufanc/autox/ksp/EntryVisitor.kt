@@ -51,8 +51,10 @@ class EntryVisitor(
         // generate scope.list
         val entries = symbol.getAnnotationsByType(XposedEntry::class).toList()
         if (entries.isNotEmpty()) {
-            val scope = entries.first().scope.joinToString("\n")
-            openScopeList(classDeclaration).write("${scope}\n".toByteArray())
+            val scope = entries.first().scope
+            if (scope.isNotEmpty()) {
+                openScopeList(classDeclaration).write(scope.joinToString("\n").toByteArray())
+            }
         }
 
         // generate java_init.list
